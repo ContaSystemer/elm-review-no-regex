@@ -1,13 +1,39 @@
 module NoRegex exposing (rule)
 
+{-| Make sure that `regex` is not being used in the code.
+As mentioned in the [core regex](https://github.com/elm/regex/tree/1.0.0#regex-in-elm) readme, it will be easier
+and nicer to use parser instead of regex.
+
+
+# Rule
+
+@docs rule
+
+-}
+
 import Elm.Syntax.Import exposing (Import)
 import Elm.Syntax.Node as Node exposing (Node)
 import Review.Rule as Rule exposing (Error, Rule)
 
 
-{-| Make sure that `regex` is not being used in the code.
-As mentioned in the [core regex](https://github.com/elm/regex/tree/1.0.0#regex-in-elm) readme, it will be easier
-and nicer to use parser instead of regex.
+{-|
+
+
+## Usage
+
+After adding [elm-review](https://package.elm-lang.org/packages/jfmengels/elm-review/latest/) to your project, import this rule to
+`ReviewConfig.elm` file and add it to the config.
+
+
+## Example configuration
+
+    import NoRegex
+    import Review.Rule exposing (Rule)
+
+    config : List Rule
+    config =
+        [ NoRegex.rule ]
+
 -}
 rule : Rule
 rule =
