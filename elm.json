@@ -1,7 +1,7 @@
 {
     "type": "package",
-    "name": "ContaSystemer/review-noregex",
-    "summary": "elm-review rule to forbid regex usage",
+    "name": "ContaSystemer/elm-review-no-regex",
+    "summary": "\"elm-review\" rule to forbid Regex package usage in favour of Parser package",
     "license": "BSD-3-Clause",
     "version": "1.0.1",
     "exposed-modules": [

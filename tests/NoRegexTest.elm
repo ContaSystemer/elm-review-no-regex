@@ -28,16 +28,15 @@ tests =
             \() ->
                 testRule (testString """import AnyModule exposing (..)""")
                     |> Review.Test.expectNoErrors
-        , Test.test "should fire an error when import contains regex modules" <|
+        , Test.test "should fire an error when import contains regex module" <|
             \() ->
                 testRule (testString "import Regex exposing (..)")
                     |> Review.Test.expectErrors
                         [ Review.Test.error
-                            { message = "No Regex usage is allowed"
+                            { message = "`Regex` module usage is not allowed. Please use `Parser` module instead."
                             , under = "import Regex exposing (..)"
                             , details =
-                                [ "Regular expressions are difficult to write, read and maintain."
-                                , "It's recommended to use `Parser` package instead of `Regex`. This will help to have reliable and maintainable code."
+                                [ "Using `Parser` module provides code which is easier to read and maintain than the regular expressions."
                                 ]
                             }
                         ]

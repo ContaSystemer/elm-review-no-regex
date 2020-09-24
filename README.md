@@ -1,6 +1,8 @@
-# review-noregex
+# review-no-regex
 
-Provides [elm-review][elm-review] rule to forbid Regex usage.
+Provides [elm-review][elm-review] rule to favor `Parser` package instead of `Regex` package.
+
+[Regex] package provides good reasoning on why it's better to use [Parser] package.
 
 ## Usage
 
@@ -19,3 +21,5 @@ config =
 
 
 [elm-review]: https://package.elm-lang.org/packages/jfmengels/elm-review/latest/
+[Regex]: https://package.elm-lang.org/packages/elm/regex/latest/
+[Parser]: https://package.elm-lang.org/packages/elm/parser/latest/

@@ -1,8 +1,8 @@
 module NoRegex exposing (rule)
 
-{-| Make sure that `regex` is not being used in the code.
-As mentioned in the [core regex](https://github.com/elm/regex/tree/1.0.0#regex-in-elm) readme, it will be easier
-and nicer to use parser instead of regex.
+{-| Makes sure that `Regex` package is not being used in the code.
+As mentioned in the [Regex](https://github.com/elm/regex/tree/1.0.0#regex-in-elm) package readme,
+it will be easier and nicer to use parser instead of regex.
 
 
 # Rule
@@ -21,8 +21,8 @@ import Review.Rule as Rule exposing (Error, Rule)
 
 ## Usage
 
-After adding [elm-review](https://package.elm-lang.org/packages/jfmengels/elm-review/latest/) to your project, import this rule to
-`ReviewConfig.elm` file and add it to the config.
+After adding [elm-review](https://package.elm-lang.org/packages/jfmengels/elm-review/latest/) to your project,
+import this rule to `ReviewConfig.elm` file and add it to the config.
 
 
 ## Example configuration
@@ -51,10 +51,9 @@ doesImportContainsRegexModule : Node Import -> List String -> List (Error {})
 doesImportContainsRegexModule node imports =
     if List.member regexModuleName imports then
         [ Rule.error
-            { message = "No Regex usage is allowed"
+            { message = "`Regex` module usage is not allowed. Please use `Parser` module instead."
             , details =
-                [ "Regular expressions are difficult to write, read and maintain."
-                , "It's recommended to use `Parser` package instead of `Regex`. This will help to have reliable and maintainable code."
+                [ "Using `Parser` module provides code which is easier to read and maintain than the regular expressions."
                 ]
             }
             (Node.range node)
